@@ -58,7 +58,7 @@ export const dataDecryption = (data: any) => {
 export const cryptHash = async (text: string) => {
     const fixed = dataEncryption(text);
     const hashedEntry = await hash(fixed.encryptedData, Number(process.env.BCYPTPHSLT));
-    const hashy = `${hashedEntry}.${fixed.iv}`
+    const hashy = `${hashedEntry}%$${fixed.iv}`
     return hashy;
 }
 

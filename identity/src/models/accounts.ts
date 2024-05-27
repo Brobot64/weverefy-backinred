@@ -1,5 +1,5 @@
 import { Schema } from "mongoose";
-import { ACCOUNT_DB } from "../dbConnection";
+import { IDENTITY_DB } from "../dbConnections";
 
 export enum UserType {
     Admin = "admin",
@@ -72,6 +72,6 @@ const accountSchema: Schema = new Schema (
     }
 );
 
-const accountModel = ACCOUNT_DB.model<IAccount>("account", accountSchema);
+const accountModel = IDENTITY_DB.model<IAccount>("account", accountSchema);
 
 export default accountModel;

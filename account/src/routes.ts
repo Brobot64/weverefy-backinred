@@ -1,8 +1,15 @@
 import { Router } from "express";
-import { createAccount } from "./account.helper";
+import { createAccount, createTempToken, getAccountInfo, loginAccount, resendVerificationToken, sendReTempToken, verifyContact } from "./account.helper";
 
 const router = Router();
 
-router.post('/register/:usertype', createAccount);
+router.post('/register/:usertype/:token', createAccount);
+router.post('/login', loginAccount);
+router.get('/verify/:token/token/:otp', verifyContact);
+router.get('/verify/resend/:token', resendVerificationToken);
+router.get('/account/:token', getAccountInfo);
+
+router.post('/token', createTempToken);
+router.post('/token/resend', sendReTempToken);
 
 export default router;

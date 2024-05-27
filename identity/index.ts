@@ -1,13 +1,14 @@
-import express, {Express} from 'express'
-import cors from'cors'
+import express, { Express } from "express";
 import dotenv from 'dotenv'
+import cors from 'cors';
+import { getAuth } from "./src/middleware";
 dotenv.config();
-import allRoutes from './src/routes'
-import timeOutMiddleWare from './src/middleware/middies';
 const morgan = require('morgan');
+import idRoutes from './src/routes';
+
 
 const app: Express = express();
-const PORT = process.env.PORT || 3002;
+const PORT = process.env.PORT || 3004;
 
 // Setting Up CORs
 let whitelist: string[] = [
@@ -30,14 +31,15 @@ const corsOptions = {
         }
     },
 };
+
 app.use(cors(corsOptions));
 app.use(express.urlencoded({ extended: true, limit: "20mb" }));
 app.use(express.json({ limit: "20mb" }));
 app.use(morgan("tiny"));
-// app.use(timeOutMiddleWare(10000));
+app.use(getAuth);
 
-app.use('/', allRoutes);
+app.use('/', idRoutes);
 
 app.listen(PORT, () => {
-    console.log(`Account Service running on port ${PORT}`)
+    console.log(`Identity Service running on port: ${PORT}`);
 })
