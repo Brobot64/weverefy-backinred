@@ -71,13 +71,14 @@ export const signUpUser = async (data: Partial<TAccount>, verificationCode: stri
         // Token Check First
 
         //@ts-ignore
-        // const isValidCode = await tempTokenStore.verifyToken(email, phone_number, verificationCode);
+        const isValidCode = await tempTokenStore.verifyToken(email, phone_number, verificationCode);
 
-        // if(!isValidCode) {
-        //     throw new Error("Invalid Verification Code");
-        // }
+        if(!isValidCode) {
+            throw new Error("Invalid Verification Code");
+        }
 
-        // await tempTokenStore.deleteToken(email, phone_number);
+        // @ts-ignore
+        await tempTokenStore.deleteToken(email, phone_number);
 
         // Ended new lineys
 
@@ -123,10 +124,10 @@ export const signUpUser = async (data: Partial<TAccount>, verificationCode: stri
                 tkn,
                 "others"
             );
-            // await sendVerificationSMS(
-            //     userRegistration.phone_number,
-            //     tkn
-            // );
+            await sendVerificationSMS(
+                userRegistration.phone_number,
+                tkn
+            );
             
             const tokenized = await tokenizeUser({
                 id: userRegistration.id,
