@@ -18,6 +18,9 @@ COPY . .
 
 # Expose the port the app runs on
 EXPOSE 5001
+RUN chmod +x start.sh
 
 # Command to run the application using the start script from package.json
-CMD ["npm", "start"]
+# CMD ["npm", "start"]
+CMD ["./start.sh"]
+
