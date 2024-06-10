@@ -16,7 +16,6 @@ services:
     branch: master
     dockerfilePath: identity/Dockerfile
     buildCommand: "npm install"
-    startCommand: "./run_dev.sh"
     # env
     
 
