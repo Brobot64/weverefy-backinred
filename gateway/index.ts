@@ -17,7 +17,7 @@ const limiter = rateLimit({
     standardHeaders: 'draft-7',
     message: { // Customize the response message
         code: 429,
-        status: 'Too Many Requests, Please try again later.'
+        status: 'Too Many Requests, Please try again later on.'
     },
 });
 
