@@ -7,8 +7,8 @@ services:
     dockerfilePath: account/Dockerfile
     buildCommand: "cd account && npm install"
     startCommand: "cd account && npm start"
-    envFilePath: .env
-
+    
+    
   - type: web
     name: identity
     env: docker
@@ -17,7 +17,8 @@ services:
     dockerfilePath: identity/Dockerfile
     buildCommand: "cd identity && npm install"
     startCommand: "cd identity && npm start"
-    envFilePath: /.env
+    
+
 
   - type: web
     name: gateway
@@ -27,5 +28,5 @@ services:
     dockerfilePath: gateway/Dockerfile
     buildCommand: "cd gateway && npm install"
     startCommand: "cd gateway && npm start"
-    envFilePath: .env
-    
+
+
