@@ -2,6 +2,7 @@ services:
   - type: web
     name: account
     env: docker
+    runtime: node
     repo: https://github.com/Brobot64/weverefy-backinred
     branch: master
     dockerfilePath: account/Dockerfile
@@ -12,6 +13,7 @@ services:
   - type: web
     name: identity
     env: docker
+    runtime: node
     repo: https://github.com/Brobot64/weverefy-backinred
     branch: master
     dockerfilePath: identity/Dockerfile
@@ -23,6 +25,7 @@ services:
   - type: web
     name: gateway
     env: docker
+    runtime: node
     repo: https://github.com/Brobot64/weverefy-backinred
     branch: master
     dockerfilePath: gateway/Dockerfile
