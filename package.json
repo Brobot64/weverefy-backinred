@@ -8,6 +8,8 @@
   "license": "MIT",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "cmd /c run_dev.bat"
+    "start:windows": "cmd /c run_dev.bat",
+    "start:unix": "./run_dev.sh",
+    "start": "npm run start:unix"
   }
 }
