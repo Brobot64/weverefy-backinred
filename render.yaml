@@ -3,6 +3,7 @@ services:
     name: account
     # env: docker
     runtime: node
+    plan: free
     repo: https://github.com/Brobot64/weverefy-backinred
     branch: master
     # dockerfilePath: account/Dockerfile
@@ -15,6 +16,7 @@ services:
     name: identity
     # env: docker
     runtime: node
+    plan: free
     repo: https://github.com/Brobot64/weverefy-backinred
     branch: master
     # dockerfilePath: identity/Dockerfile
@@ -28,6 +30,7 @@ services:
     name: gateway
     # env: docker
     runtime: node
+    plan: free
     repo: https://github.com/Brobot64/weverefy-backinred
     branch: master
     # dockerfilePath: gateway/Dockerfile

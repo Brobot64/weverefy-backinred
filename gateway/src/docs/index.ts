@@ -20,7 +20,7 @@ const swaggerDoc = {
       url: "http://localhost:5001",
     },
     {
-      url: "https://acceede-marketplace.onrender.com",
+      url: "https://gateway-slwi.onrender.com",
     },
   ],
 

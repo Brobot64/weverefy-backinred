@@ -13,6 +13,7 @@ const PORT = process.env.PORT || 3004;
 // Setting Up CORs
 let whitelist: string[] = [
     "https://localhost:5001",
+    "https://gateway-slwi.onrender.com"
 ]
 
 if (process.env.NODE_ENV === "production") {

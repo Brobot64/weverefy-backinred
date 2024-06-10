@@ -25,6 +25,7 @@ const limiter = rateLimit({
 // Whitelist CORS
 let whitelist: string[] = [
     "http://localhost:5001",
+    "https://gateway-slwi.onrender.com"
 ];
 
 if (process.env.NODE_ENV !== "development") {
@@ -82,16 +83,19 @@ const proxyRequest = async (req: Request, res: Response, target: string): Promis
     }
 };
 
+const accountUrl = process.env.NODE_ENV !== "development" ? "https://account-a3fp.onrender.com" : "http://localhost:3003";
+const identityUrl = process.env.NODE_ENV !== "development" ? "https://identity-46dj.onrender.com" : "http://localhost:3004";
+
 
 app.use("/docs", docsRouter);
 
 
 app.use('/account', (req: Request, res: Response) => {
-    proxyRequest(req, res, 'http://localhost:3003');
+    proxyRequest(req, res, accountUrl);
 });
 
 app.use('/identity', (req: Request, res: Response) => {
-    proxyRequest(req, res, 'http://localhost:3004');
+    proxyRequest(req, res, identityUrl);
 });
 
 
