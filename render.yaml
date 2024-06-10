@@ -1,34 +1,37 @@
 services:
   - type: web
     name: account
-    env: docker
+    # env: docker
     runtime: node
     repo: https://github.com/Brobot64/weverefy-backinred
     branch: master
-    dockerfilePath: account/Dockerfile
+    # dockerfilePath: account/Dockerfile
     buildCommand: "cd account && npm install"
+    startCommand: "cd account && npm start"
     # env
     
 
   - type: web
     name: identity
-    env: docker
+    # env: docker
     runtime: node
     repo: https://github.com/Brobot64/weverefy-backinred
     branch: master
-    dockerfilePath: identity/Dockerfile
-    buildCommand: "npm install"
+    # dockerfilePath: identity/Dockerfile
+    buildCommand: "cd identity && npm install"
+    startCommand: "cd identity && npm start"
     # env
     
 
 
   - type: web
     name: gateway
-    env: docker
+    # env: docker
     runtime: node
     repo: https://github.com/Brobot64/weverefy-backinred
     branch: master
-    dockerfilePath: gateway/Dockerfile
+    # dockerfilePath: gateway/Dockerfile
     buildCommand: "cd gateway && npm install"
+    startCommand: "cd gateway && npm start"
     # env
 
