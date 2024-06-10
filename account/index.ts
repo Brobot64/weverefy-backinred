@@ -1,4 +1,4 @@
-import express, {Express} from 'express'
+import express, {Express, Request, Response} from 'express'
 import cors from'cors'
 import dotenv from 'dotenv'
 dotenv.config();
@@ -7,7 +7,7 @@ import timeOutMiddleWare from './src/middleware/middies';
 const morgan = require('morgan');
 
 const app: Express = express();
-const PORT = process.env.PORT || 3002;
+const PORT = process.env.PORT || 3003;
 
 // Setting Up CORs
 let whitelist: string[] = [
@@ -35,7 +35,9 @@ app.use(express.urlencoded({ extended: true, limit: "20mb" }));
 app.use(express.json({ limit: "20mb" }));
 app.use(morgan("tiny"));
 // app.use(timeOutMiddleWare(10000));
-
+// app.get('/', (req: Request, res: Response) => {
+//     res.send("Accounts and Typescript");
+// })
 app.use('/', allRoutes);
 
 app.listen(PORT, () => {

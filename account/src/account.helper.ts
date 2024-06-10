@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { getUserInfo, resendTempToken, resendVerification, signInUser, signUpUser, verifyAccountEmail } from "./accountServices";
+import { getUserInfo, resendTempToken, resendVerification, signInUser, signUpUser, updateAccount, verifyAccountEmail } from "./accountServices";
 import { errorResponse, successResponse } from "./utils/handleResponse";
 import { initiateSignUp } from "../tokenservice";
 
@@ -51,6 +51,19 @@ export const getAccountInfo = async (req: Request, res: Response) => {
     try {
         const { token } = req.params;
         const response = await getUserInfo(token);
+        return successResponse(res, 200, response);
+    } catch (error: any) {
+        return errorResponse(res, 500, error?.message);
+    }
+}
+
+
+
+export const updateUserAccount = async (req: Request, res: Response) => {
+    try {
+        const data = req.body;
+        const { token } = req.params;
+        const response = await updateAccount(token, data);
         return successResponse(res, 200, response);
     } catch (error: any) {
         return errorResponse(res, 500, error?.message);

@@ -1,5 +1,5 @@
 {
-  "name": "payment",
+  "name": "payment", 
   "version": "1.0.0",
   "description": "Payment services for we verify",
   "main": "index.ts",

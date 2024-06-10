@@ -10,6 +10,6 @@ const baseUrl = process.env.NODE_ENV === 'development'
 export const YouVerifyAPI = axios.create({
     baseURL: `${baseUrl}/`,
     headers: {
-        "Authorization": `Bearer jsdflkdfklfsdfioewkjwer`
+        "token": `${process.env.YOUVRFY_TKN}`
     }
 })

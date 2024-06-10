@@ -1,0 +1,13 @@
+{
+  "name": "weverefyd",
+  "version": "1.0.0",
+  "description": "WEVEREFY",
+  "main": "index.js",
+  "repository": "https://github.com/Weverefy-collabos/Backend-MicroService.git",
+  "author": "Brobot64 <sulaymanibrahim64@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "cmd /c run_dev.bat"
+  }
+}

@@ -16,7 +16,8 @@ export enum UserStatus {
 
 export enum KYCStatus {
     Verified = "verified",
-    Unverified = "unverified"
+    Unverified = "unverified",
+    Tier1 = "tier1"
 }
 
 export enum AGender {
@@ -41,6 +42,7 @@ export interface IAccount {
     nimc: string;
     address: string;
     lastLogin: Date;
+    metadata: {};
 }
 
 
@@ -63,7 +65,9 @@ const accountSchemaFields: Record<keyof IAccount, any> = {
     account_type: { type: String, enum: UserType, required: true },
     kyc: { type: String, default: KYCStatus.Unverified },
     pta: { type: String },
-    lastLogin: { type: Date, default: Date.now() }
+    lastLogin: { type: Date, default: Date.now() },
+    metadata: { type: Object, default: {} }
+    
 }
 
 const accountSchema: Schema = new Schema (

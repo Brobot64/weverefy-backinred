@@ -1,4 +1,4 @@
-import express, { Express } from "express";
+import express, { Express, Request, Response } from "express";
 import dotenv from 'dotenv'
 import cors from 'cors';
 import { getAuth } from "./src/middleware";
@@ -39,6 +39,9 @@ app.use(morgan("tiny"));
 app.use(getAuth);
 
 app.use('/', idRoutes);
+// app.get('/', (req: Request, res: Response) => {
+//     res.send("Express and Typescript");
+// })
 
 app.listen(PORT, () => {
     console.log(`Identity Service running on port: ${PORT}`);

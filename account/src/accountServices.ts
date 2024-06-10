@@ -1,5 +1,5 @@
 import { compare } from "bcryptjs";
-import accountModel, { UserType } from "./models/accounts";
+import accountModel, { IAccount, UserType } from "./models/accounts";
 import { cryptHash, tokenizeUser, DbEncryption, detokenizeUser } from "./utils/handleEncryption";
 import sendMail from "./utils/mail";
 import { generateOTP, verifyOTP } from "./utils/token";
@@ -261,6 +261,33 @@ export const getUserInfo = async (token: string) => {
       return user
     } catch (error: any) {
       throw new Error(error.message);
+    }
+}
+
+export const updateAccount = async (token: string, data: Partial<IAccount>) => {
+    try {
+        const user = await detokUser(token);
+        if(!user) {
+            throw new Error("Unauthorized");
+        }
+
+        // if(!user.isEmailVerified) {
+        //     throw new Error("Unverified User");
+        // }
+
+        const updatedAccount = await accountModel.findByIdAndUpdate(
+            user._id,
+            { $set: data },
+            { new: true }
+         );
+
+        if (!updatedAccount) {
+            throw new Error("Account not found");
+        }
+
+        return { msg: "Account Update" }
+    } catch (error: any) {
+        throw new Error(error.message);
     }
 }
 
