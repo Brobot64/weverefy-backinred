@@ -25,5 +25,6 @@ services:
     branch: master
     dockerfilePath: gateway/Dockerfile
     buildCommand: "cd gateway && npm install"
-# jaskj
+    flintsa
+    xhfxgdhj 
 
