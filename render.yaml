@@ -6,9 +6,8 @@ services:
     branch: master
     dockerfilePath: account/Dockerfile
     buildCommand: "cd account && npm install"
-    startCommand: "cd account && npm start"
     
-    
+
   - type: web
     name: identity
     env: docker
@@ -16,7 +15,6 @@ services:
     branch: master
     dockerfilePath: identity/Dockerfile
     buildCommand: "cd identity && npm install"
-    startCommand: "cd identity && npm start"
     
 
 
@@ -27,6 +25,5 @@ services:
     branch: master
     dockerfilePath: gateway/Dockerfile
     buildCommand: "cd gateway && npm install"
-    startCommand: "cd gateway && npm start"
 
 
