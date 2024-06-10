@@ -6,6 +6,7 @@ services:
     branch: master
     dockerfilePath: account/Dockerfile
     buildCommand: "cd account && npm install"
+    # env
     
 
   - type: web
@@ -15,6 +16,7 @@ services:
     branch: master
     dockerfilePath: identity/Dockerfile
     buildCommand: "cd identity && npm install"
+    # env
     
 
 
@@ -25,6 +27,5 @@ services:
     branch: master
     dockerfilePath: gateway/Dockerfile
     buildCommand: "cd gateway && npm install"
-    flintsa
-    xhfxgdhj 
+    # env
 
