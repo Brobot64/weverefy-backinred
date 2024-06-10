@@ -8,9 +8,6 @@ services:
     buildCommand: "cd account && npm install"
     startCommand: "cd account && npm start"
     envFilePath: .env
-    envVars:
-      - key: NODE_ENV
-        value: production
 
   - type: web
     name: identity
@@ -20,10 +17,7 @@ services:
     dockerfilePath: identity/Dockerfile
     buildCommand: "cd identity && npm install"
     startCommand: "cd identity && npm start"
-    envFilePath: .env
-    envVars:
-      - key: NODE_ENV
-        value: production
+    envFilePath: /.env
 
   - type: web
     name: gateway
@@ -34,6 +28,4 @@ services:
     buildCommand: "cd gateway && npm install"
     startCommand: "cd gateway && npm start"
     envFilePath: .env
-    envVars:
-      - key: NODE_ENV
-        value: production
+    
