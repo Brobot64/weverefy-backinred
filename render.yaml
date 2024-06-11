@@ -9,6 +9,7 @@ services:
     # dockerfilePath: account/Dockerfile
     buildCommand: "cd account && npm install"
     startCommand: "cd account && npm start"
+    autoDeploy: true
     # env
     
 
@@ -22,6 +23,7 @@ services:
     # dockerfilePath: identity/Dockerfile
     buildCommand: "cd identity && npm install"
     startCommand: "cd identity && npm start"
+    autoDeploy: true
     # env
     
 
@@ -36,5 +38,6 @@ services:
     # dockerfilePath: gateway/Dockerfile
     buildCommand: "cd gateway && npm install"
     startCommand: "cd gateway && npm start"
+    autoDeploy: true
     # env
 
